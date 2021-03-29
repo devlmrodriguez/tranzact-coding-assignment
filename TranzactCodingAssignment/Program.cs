@@ -1,4 +1,4 @@
-﻿using System;
+﻿using TranzactCodingAssignment.Services;
 
 namespace TranzactCodingAssignment
 {
@@ -6,7 +6,11 @@ namespace TranzactCodingAssignment
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            PageViewFileService pageViewFileService = new PageViewFileService();
+            PageViewResultService pageViewResultService = new PageViewResultService();
+            PageViewService pageViewService = new PageViewService(pageViewFileService, pageViewResultService);
+
+            pageViewService.PrintResults(numberOfHours: 5);
         }
     }
 }
